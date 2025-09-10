@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light dark; }
+html,body { height: 100%; scroll-behavior: smooth; }
+.gradient { background: radial-gradient(80% 60% at 50% 0%, rgba(59,130,246,.12), transparent 60%); }
+.card { @apply rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur p-6; }

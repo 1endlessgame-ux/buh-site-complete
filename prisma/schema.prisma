@@ -33,3 +33,4 @@ model Message {
   @@index([recipientId, createdAt])
   @@index([senderId, createdAt])
 }
+

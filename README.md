@@ -1,30 +1,18 @@
-# Бухгалтерский лендинг (Next.js + Tailwind)
+# Пользователи и сообщения (NextAuth + Prisma)
 
-Готовый проект с главной страницей, каталогом услуг (8 категорий) и тарифной сеткой.
+**Страницы:**  
+- Регистрация: `/auth/register`  
+- Вход: `/auth/login`  
+- Сообщения: `/messages` (после входа)
 
-## Запуск локально
-```bash
-npm install
-npm run dev
-```
+## Настройка БД (Postgres)
+- Подключите Vercel Postgres (Integration) или Neon.
+- В переменные окружения проекта (Vercel → Settings → Environment Variables) добавьте:
+  - `DATABASE_URL` — строка подключения к Postgres
+  - `NEXTAUTH_SECRET` — любая случайная строка
+- Выполните миграции локально (`npx prisma migrate dev`) или через CI (`npx prisma migrate deploy`).
 
-Откройте http://localhost:3000
-
-## Публикация в GitHub
-```bash
-git init
-git add .
-git commit -m "Initial commit: complete"
-git branch -M main
-git remote add origin https://github.com/<username>/buh-site.git
-git push -u origin main
-```
-
-## Деплой на Vercel
-Подключите репозиторий и нажмите Deploy. Или из локали:
-```bash
-npx vercel
-```
-
-### Фото
-Замените `public/images/profile.jpg` на ваш деловой портрет (квадрат 1000×1000+).
+## Скрипты
+- `npm run dev` — локально
+- `npm run build` — сборка
+- `npm start` — запуск prod

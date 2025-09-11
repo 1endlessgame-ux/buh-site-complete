@@ -1,11 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Бухгалтер онлайн — [Твоё имя]",
   description: "Учёт, зарплата, отчётность, консультации. 1С, удалённая работа, понятные регламенты.",
-  metadataBase: new URL("https://example.com"),
-  openGraph: { title: "Бухгалтер онлайн — [Твоё имя]", type: "website" }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -19,12 +18,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex gap-6 text-sm">
               <a href="/services">Услуги</a>
               <a href="/pricing">Тарифы</a>
-              <a href="/#about">Обо мне</a>
-              <a href="/#contact" className="px-3 py-1 rounded-lg bg-blue-600 text-white">Консультация</a>
+              <a href="/messages">Сообщения</a>
+              <a href="/auth/login" className="px-3 py-1 rounded-lg border border-black/10 dark:border-white/10">Войти</a>
             </div>
           </nav>
         </header>
-        <main className="mx-auto max-w-6xl px-4">{children}</main>
+        <Providers>
+          <main className="mx-auto max-w-6xl px-4">{children}</main>
+        </Providers>
         <footer className="mx-auto max-w-6xl px-4 py-8 text-sm text-neutral-500">
           © {new Date().getFullYear()} [Твоё имя]. Бухгалтерские услуги.
         </footer>
